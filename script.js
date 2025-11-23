@@ -10,11 +10,18 @@
 // immediately apply them. Make sure you also notify the user somehow that the preferences
 // were saved.
 
+
 let form = document.getElementById("preferences-form");
 
 let username = document.getElementById("name");
 let backgroundColor = document.getElementById("background-color");
 let foregroundColor = document.getElementById("foreground-color");
+
+let greeting = document.getElementById("greeting");
+
+document.addEventListener("DOMContentLoaded", () => {
+    applyPreferences(); // Apply saved preferences as soon as the page loads
+});
 
 form.addEventListener("submit", event => {
     event.preventDefault();
@@ -30,4 +37,6 @@ form.addEventListener("submit", event => {
 function applyPreferences() {
     document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
     document.body.style.color = localStorage.getItem("foregroundColor");
+    greeting.innerText = "Hello " + localStorage.getItem("username") + "!";
+
 }
