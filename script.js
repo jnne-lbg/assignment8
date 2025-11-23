@@ -17,6 +17,12 @@ let backgroundColor = document.getElementById("background-color");
 let foregroundColor = document.getElementById("foreground-color");
 
 form.addEventListener("submit", event => {
+    event.preventDefault();
+    console.log(foregroundColor.value);
+
+    localStorage.setItem("username", username.value);
+    localStorage.setItem("backgroundColor", backgroundColor.value);
+    localStorage.setItem("foregroundColor", foregroundColor.value);
 })
 
 function applyPreferences() {
