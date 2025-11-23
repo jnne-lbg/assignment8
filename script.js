@@ -12,7 +12,7 @@
 
 let form = document.getElementById("preferences-form");
 
-let name = document.getElementById("name");
+let username = document.getElementById("name");
 let backgroundColor = document.getElementById("background-color");
 let foregroundColor = document.getElementById("foreground-color");
 
@@ -23,8 +23,11 @@ form.addEventListener("submit", event => {
     localStorage.setItem("username", username.value);
     localStorage.setItem("backgroundColor", backgroundColor.value);
     localStorage.setItem("foregroundColor", foregroundColor.value);
+
+    applyPreferences();
 })
 
 function applyPreferences() {
-    return; // get values from localStorage
+    document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
+    document.body.style.color = localStorage.getItem("foregroundColor");
 }
