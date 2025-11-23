@@ -11,32 +11,31 @@
 // were saved.
 
 
-let form = document.getElementById("preferences-form");
+let form = document.getElementById("preferences-form");  // Point variable "form" to selected form element
 
-let username = document.getElementById("name");
-let backgroundColor = document.getElementById("background-color");
-let foregroundColor = document.getElementById("foreground-color");
+let username = document.getElementById("name");  // Point variable "username" to selected name element
+let backgroundColor = document.getElementById("background-color");  // Point variable "backgroundColor" to selected background color element
+let foregroundColor = document.getElementById("foreground-color");  // Point variable "foregroundColor" to selected foreground color element
 
-let greeting = document.getElementById("greeting");
+let greeting = document.getElementById("greeting");  // Point variable "greeting" to selected greeting element
 
-document.addEventListener("DOMContentLoaded", () => {
-    applyPreferences(); // Apply saved preferences as soon as the page loads
+document.addEventListener("DOMContentLoaded", () => {  // Have document listen for when the page loads
+    applyPreferences();  // Apply preferences when the page loads
 });
 
-form.addEventListener("submit", event => {
-    event.preventDefault();
-    console.log(foregroundColor.value);
+form.addEventListener("submit", event => {  // Have form listen for when a submit event occurs
+    event.preventDefault();  // Prevent default behavior
 
-    localStorage.setItem("username", username.value);
-    localStorage.setItem("backgroundColor", backgroundColor.value);
-    localStorage.setItem("foregroundColor", foregroundColor.value);
+    localStorage.setItem("username", username.value);  // Set item "username"
+    localStorage.setItem("backgroundColor", backgroundColor.value);  // Set item "backgroundColor"
+    localStorage.setItem("foregroundColor", foregroundColor.value);  // Set item "foregroundColor"
 
-    applyPreferences();
+    applyPreferences();  // Apply preferences
 })
 
 function applyPreferences() {
-    document.body.style.backgroundColor = localStorage.getItem("backgroundColor");
-    document.body.style.color = localStorage.getItem("foregroundColor");
-    greeting.innerText = "Hello " + localStorage.getItem("username") + "!";
+    document.body.style.backgroundColor = localStorage.getItem("backgroundColor");  // Set background color to background color value in localStorage
+    document.body.style.color = localStorage.getItem("foregroundColor");  // Set foreground color to foreground color value in localStorage
+    greeting.innerText = "Hello " + localStorage.getItem("username") + "!";  // Set greeting to altered username value in localStorage
 
 }
